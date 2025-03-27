@@ -33,23 +33,75 @@ const universities: Uni[] = [
 
 <Layout>
   <main class="mx-auto mb-10 flex w-fit flex-col items-center gap-10">
-    <nav class="mt-2 flex w-full items-center justify-around">
+    <nav class="mt-2 flex w-full items-center justify-around relative">
       <h1 class="text-4xl font-semibold">OSEC</h1>
-      <span class="flex items-center gap-1">
+      <span class="hidden items-center gap-1 md:flex">
         <a href="/historia">
-          <button class="h-fit rounded-l-lg bg-blue-500/50 hover:bg-blue-600 px-4 py-2 text-white"
-          >Historia</button
-        ></a>
+          <button
+            class="h-fit rounded-l-lg bg-blue-500/50 px-4 py-2 text-white hover:bg-blue-600"
+            >Historia</button
+          ></a
+        >
         <a href="/eventos.html">
-          <button class="h-fit bg-blue-500/50 hover:bg-blue-600 px-4 py-2 text-white"
-          >Eventos</button
-        ></a>
+          <button
+            class="h-fit bg-blue-500/50 px-4 py-2 text-white hover:bg-blue-600"
+            >Eventos</button
+          ></a
+        >
         <a href="/proyectos.html">
-          <button class="h-fit rounded-r-lg bg-blue-500/50 hover:bg-cyan-600 px-4 py-2 text-white"
-          >Proyectos</button
-        ></a>
+          <button
+            class="h-fit rounded-r-lg bg-blue-500/50 px-4 py-2 text-white hover:bg-cyan-600"
+            >Proyectos</button
+          ></a
+        >
       </span>
-      <span class="flex items-center gap-0">  
+      <div class="md:hidden">
+        <input type="checkbox" id="hamburger-toggle" class="peer hidden" />
+        <label
+          for="hamburger-toggle"
+          id="hamburger-menu"
+          class="group block cursor-pointer p-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </label>
+        <div
+          id="mobile-menu"
+          class="invisible absolute left-0 z-10 mt-2 w-full rounded-md bg-black py-1 px-16 opacity-0 shadow-lg ring-1 ring-neutral-700 ring-opacity-5 transition-all duration-200 peer-checked:visible peer-checked:opacity-100"
+        >
+          <a
+            href="/historia"
+            class="block px-4 py-2 text-white hover:bg-blue-600 focus:bg-blue-600">Historia</a
+          >
+          <a
+            href="/eventos.html"
+            class="block px-4 py-2 text-white hover:bg-blue-600 focus:bg-blue-600">Eventos</a
+          >
+          <a
+            href="/proyectos.html"
+            class="block px-4 py-2 text-white hover:bg-blue-600 focus:bg-blue-600">Proyectos</a
+          >
+          <a
+            href="https://github.com/osec-cl"
+            class="block px-4 py-2 text-white hover:bg-blue-600 focus:bg-blue-600"
+            ><img src="/github_logo.svg" alt="github logo" class="size-6" /></a
+          >
+        </div>
+      </div>
+      <span class="hidden items-center gap-0 md:flex">
         <a href="https://github.com/osec-cl"
           ><img src="/github_logo.svg" alt="" class="size-12" /></a
         >
@@ -84,11 +136,7 @@ const universities: Uni[] = [
               href={uni.link}
             >
               <h2 class="text-bold text-xl">{uni.name}</h2>
-              <img
-                class="w-full"
-                src={uni.logo_uni}
-                alt={uni.name + " logo"}
-              />
+              <img class="w-full" src={uni.logo_uni} alt={uni.name + " logo"} />
               <img
                 class="w-full"
                 src={uni.logo_os}
